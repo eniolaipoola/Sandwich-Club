@@ -70,7 +70,7 @@ public class Sandwich {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<String> ingredients)  {
         this.ingredients = ingredients;
     }
 }
