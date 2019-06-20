@@ -16,11 +16,11 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    TextView mainNameTextView;
     TextView originTextView;
     TextView descriptionTextView;
     TextView ingredientTextView;
-
+    TextView alsoKnownAsTextView;
+    TextView placeOfOrigin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +66,17 @@ public class DetailActivity extends AppCompatActivity {
     private void populateUI(Sandwich sandwich) {
 
         originTextView = findViewById(R.id.origin_tv);
-        descriptionTextView = findViewById(R.id.tv_description);
+        descriptionTextView = findViewById(R.id.description_tv);
+        placeOfOrigin = findViewById(R.id.tv_place_of_origin);
+        alsoKnownAsTextView = findViewById(R.id.also_known_tv);
+        ingredientTextView = findViewById(R.id.ingredients_tv);
 
         if(sandwich != null){
-            originTextView.append(sandwich.getPlaceOfOrigin());
+            originTextView.append(sandwich.getMainName());
             descriptionTextView.append(sandwich.getDescription());
+            placeOfOrigin.append(sandwich.getPlaceOfOrigin());
+            alsoKnownAsTextView.append("");
+            ingredientTextView.append("");
         }
     }
 }
