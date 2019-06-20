@@ -3,7 +3,6 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,8 +73,6 @@ public class DetailActivity extends AppCompatActivity {
         alsoKnownAsTextView = findViewById(R.id.also_known_tv);
         ingredientTextView = findViewById(R.id.ingredients_tv);
 
-        List<String> alsoKnownAs = sandwich.getAlsoKnownAs();
-
         originTextView.append(sandwich.getMainName());
         descriptionTextView.append(sandwich.getDescription());
         placeOfOrigin.append(sandwich.getPlaceOfOrigin());
@@ -93,7 +90,6 @@ public class DetailActivity extends AppCompatActivity {
         for(String otherNames : list){
             builder.append(otherNames + ",");
         }
-        Log.d("debug", "list to string result: " + builder.toString());
         return builder.toString();
     }
 }
