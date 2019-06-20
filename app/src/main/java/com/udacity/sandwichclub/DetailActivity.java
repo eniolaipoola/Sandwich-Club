@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
+
+import java.util.List;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -71,12 +74,26 @@ public class DetailActivity extends AppCompatActivity {
         alsoKnownAsTextView = findViewById(R.id.also_known_tv);
         ingredientTextView = findViewById(R.id.ingredients_tv);
 
-        if(sandwich != null){
-            originTextView.append(sandwich.getMainName());
-            descriptionTextView.append(sandwich.getDescription());
-            placeOfOrigin.append(sandwich.getPlaceOfOrigin());
-            alsoKnownAsTextView.append("");
-            ingredientTextView.append("");
+        List<String> alsoKnownAs = sandwich.getAlsoKnownAs();
+
+        originTextView.append(sandwich.getMainName());
+        descriptionTextView.append(sandwich.getDescription());
+        placeOfOrigin.append(sandwich.getPlaceOfOrigin());
+
+        List<String> alsoKnownAsList = sandwich.getAlsoKnownAs();
+        alsoKnownAsTextView.append(listToString(alsoKnownAsList));
+
+        List<String> ingredientList = sandwich.getIngredients();
+        ingredientTextView.append(listToString(ingredientList));
+
+    }
+
+    public String listToString(List<String> list){
+        StringBuilder builder = new StringBuilder();
+        for(String otherNames : list){
+            builder.append(otherNames + ",");
         }
+        Log.d("debug", "list to string result: " + builder.toString());
+        return builder.toString();
     }
 }

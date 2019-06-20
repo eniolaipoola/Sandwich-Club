@@ -37,7 +37,7 @@ public class JsonUtils {
             List<String> ingredientsList = new ArrayList<String>();
             if(ingredientsArray  != null){
                 for(int i = 0; i < ingredientsArray.length(); i++){
-                    alsoKnownAsList.add(ingredientsArray.getString(i));
+                    ingredientsList.add(ingredientsArray.getString(i));
                 }
             }
 
