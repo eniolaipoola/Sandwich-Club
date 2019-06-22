@@ -19,6 +19,7 @@
         android:contentDescription="@string/sandwich_picture_content_description"
         android:cropToPadding="true"
         android:scaleType="centerCrop"
+        android:background="#cccccc"
         app:layout_constraintBottom_toTopOf="@+id/origin_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
